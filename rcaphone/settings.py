@@ -106,5 +106,4 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 try:
     from local_settings import *
 except Exception as e:
-    print "didn't work"
     pass
