@@ -16,15 +16,14 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'so3^#$&%)vm5q_6%9xg#lr8x-=kzfmt5ovzam6-ean3$i!5m8n'
+from secret import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -59,14 +58,13 @@ WSGI_APPLICATION = 'rcaphone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+# we only need the engine name, as heroku takes care of the rest
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rcaphone_db',
-        'USER': 'dchen93',
-        'PASSWORD': 'password',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
     }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -95,3 +93,18 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+
+DATABASES = { 'default' : dj_database_url.config()}
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# try to load local_settings.py if it exists
+try:
+    from local_settings import *
+except Exception as e:
+    print "didn't work"
+    pass
