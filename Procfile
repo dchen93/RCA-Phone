@@ -1,1 +1,1 @@
-web: gunicorn rcaphone.wsgi --log-file -
+web: gunicorn rcaphone.wsgi -b 0.0.0.0:$PORT
