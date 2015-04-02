@@ -1,5 +1,6 @@
 # RCA-Phone
-First Django Website, interfaced with Bootstrap and Django Rest Framework, deployed on Heroku, for location of the RCA Phone.
-Companion Android App will be completed soon
+Website for location of the RCA Phone based on Django, interfaced with Bootstrap and Django Rest Framework, uses PostgreSQL, deployed on Heroku.
+
+Companion Android App in RCA-Phone-Android repository
 
 Scalable for multiple phones and locations.
