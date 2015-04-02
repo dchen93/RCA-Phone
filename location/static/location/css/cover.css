@@ -65,16 +65,6 @@ body {
   padding: 30px;
 }
 
-#time-shadow {
-  background: rgba(0,0,0,.7);
-  margin-left: 20em;
-  margin-right: 20em;
-  margin-bottom: 1em;
-  padding: .5em;
-  padding-bottom: .1px;
-  border-radius: .3em;
-}
-
 
 /*
  * Header
