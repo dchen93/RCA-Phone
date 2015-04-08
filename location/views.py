@@ -46,3 +46,10 @@ class PhoneViewSet(viewsets.ModelViewSet):
     """
     queryset = Phone.objects.all()
     serializer_class = PhoneSerializer
+
+class CenterViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows phones to be viewed or edited. To reach phone instances, /api/phones/{pk}
+    """
+    queryset = Center.objects.all()
+    serializer_class = CenterSerializer

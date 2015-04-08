@@ -8,6 +8,7 @@ from location import views
 
 router = routers.DefaultRouter()
 router.register(r'phones', views.PhoneViewSet)
+router.register(r'centers', views.CenterViewSet)
 
 
 urlpatterns = patterns('',
